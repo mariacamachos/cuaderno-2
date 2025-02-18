@@ -1,42 +1,39 @@
 import es.uah.matcomp.mp.e2.ejerciciosclases.e4.MyPoint;
-import es.uah.matcomp.mp.e2.ejerciciosclases.e5.MyLine;
+import es.uah.matcomp.mp.e2.ejerciciosclases.e6.MyCircle;
+
+import java.util.Arrays;
 
 
 public class Main {
     public static void main(String[] args) {
-        MyPoint p1 = new MyPoint(16, 5);
-        MyPoint p2 = new MyPoint(1, 7);
-        MyPoint p3 = new MyPoint(2, 9);
-        MyLine L1 = new MyLine(2,3,1,5);
-        MyLine L2 = new MyLine(p2, p1);
+        MyPoint p1 = new MyPoint(1,9);
+        MyCircle c1 = new MyCircle(1,3, 5);
+        MyCircle c2 = new MyCircle(new MyPoint(9,3),3);
+        MyCircle c3 = new MyCircle();
+        System.out.println("Circulo 1: " + c1);
+        System.out.println("Circulo 2: " + c2);
 
-        System.out.println(p1);
-        System.out.println(L1);
+        System.out.println("Centro de c1: " + c1.getCenter());
+        System.out.println("Radio de c2: " + c2.getRadius());
 
-        System.out.println(L2.getBegin());
-        System.out.println(L2.getEnd());
-        System.out.println(L1.getBeginX());
-        System.out.println(L1.getBeginY());
-        System.out.println(L1.getEndX());
-        System.out.println(L1.getEndY());
+        c1.setRadius(5);
+        System.out.println("Nuevo radio de c1: " + c1.getRadius());
+        c1.setCenter(new MyPoint(6,4));
+        System.out.println("Nuevo centro de c1: " + c1.getCenter());
 
-        L1.setBeginX(p1.getX());
-        System.out.println(L1);
-        L1.setBeginY(p1.getY());
-        System.out.println(L1);
-        L1.setBegin(p2);
-        System.out.println(L1);
-        L1.setEnd(p3);
-        System.out.println(L1);
+        c1.setCenterX(2);
+        System.out.println("Nuevo centro de c1: " + c1.getCenter());
+        c2.setCenterY(5);
+        System.out.println("Nuevo centro de c2: " + c2.getCenter());
 
-        L1.setEndXY(p3.getX(), p2.getY());
-        System.out.println(L1);
-        L1.getBeginXY();
-        L2.setEndXY(p1.getX(), p2.getY());
-        System.out.println(L2);
-        L2.getBeginXY();
-        System.out.println(L2.getLength());
-        System.out.println(L1.getLength());
+        c1.setCenterXY(4, 9);
+        System.out.println("Nuevo centro de c1: " + Arrays.toString(c1.getCenterXY()));
+        c2.setCenterXY(0, 6);
+        System.out.println("Nuevo centro de c2: " + Arrays.toString(c2.getCenterXY()));
 
+        System.out.println("Area de c1: " + c1.getArea());
+        System.out.println("Circunferencia de c1: " + c1.getCircumference());
+
+        System.out.println("Distancia entre c1 y c2: " + c1.distance(c2));
     }
 }
