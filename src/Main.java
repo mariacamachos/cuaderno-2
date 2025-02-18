@@ -1,39 +1,24 @@
 import es.uah.matcomp.mp.e2.ejerciciosclases.e4.MyPoint;
-import es.uah.matcomp.mp.e2.ejerciciosclases.e6.MyCircle;
-
-import java.util.Arrays;
-
+import es.uah.matcomp.mp.e2.ejerciciosclases.e7.MyTriangle;
 
 public class Main {
     public static void main(String[] args) {
-        MyPoint p1 = new MyPoint(1,9);
-        MyCircle c1 = new MyCircle(1,3, 5);
-        MyCircle c2 = new MyCircle(new MyPoint(9,3),3);
-        MyCircle c3 = new MyCircle();
-        System.out.println("Circulo 1: " + c1);
-        System.out.println("Circulo 2: " + c2);
+        MyPoint p1 = new MyPoint(2, 7);
+        MyPoint p2 = new MyPoint(8, 5);
+        MyPoint p3 = new MyPoint(3, 1);
 
-        System.out.println("Centro de c1: " + c1.getCenter());
-        System.out.println("Radio de c2: " + c2.getRadius());
+        System.out.println("Mi primer punto es: " + p1);
+        System.out.println("Mi segundo punto es: " + p2);
+        System.out.println("Mi tercer punto es: " + p3);
 
-        c1.setRadius(5);
-        System.out.println("Nuevo radio de c1: " + c1.getRadius());
-        c1.setCenter(new MyPoint(6,4));
-        System.out.println("Nuevo centro de c1: " + c1.getCenter());
+        MyTriangle t1 = new MyTriangle(0, 0, 4, 0, 2, 3);
+        MyTriangle t2 = new MyTriangle(p1, p2, p3);
 
-        c1.setCenterX(2);
-        System.out.println("Nuevo centro de c1: " + c1.getCenter());
-        c2.setCenterY(5);
-        System.out.println("Nuevo centro de c2: " + c2.getCenter());
 
-        c1.setCenterXY(4, 9);
-        System.out.println("Nuevo centro de c1: " + Arrays.toString(c1.getCenterXY()));
-        c2.setCenterXY(0, 6);
-        System.out.println("Nuevo centro de c2: " + Arrays.toString(c2.getCenterXY()));
+        System.out.println("El triangulo formado por los puntos (0,0), (4,0), (2,3) es : " + t1.getType()) ;
+        System.out.println("El triangulo formado por los puntos p1, p2, p3 es : " + t2.getType());
 
-        System.out.println("Area de c1: " + c1.getArea());
-        System.out.println("Circunferencia de c1: " + c1.getCircumference());
-
-        System.out.println("Distancia entre c1 y c2: " + c1.distance(c2));
+        System.out.println("El perimetro del triangulo t1 es:" + t1.getPerimeter());
+        System.out.println("El perimetro del triangulo t2 es:" + t2.getPerimeter());
     }
 }
