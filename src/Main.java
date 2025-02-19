@@ -1,44 +1,43 @@
-import es.uah.matcomp.mp.e2.ejerciciosclases.e1.Book;
-import es.uah.matcomp.mp.e2.ejerciciosclases.e1.Author;
+import es.uah.matcomp.mp.e2.ejerciciosclases.e2.Customer;
+import es.uah.matcomp.mp.e2.ejerciciosclases.e2.Invoice;
 
-public class Main {
-    public static void main(String[] args) {
-        /**Establecemos los datos del autor con el nombre y el email y se imprime*/
-        Author a1 = new Author("Tan Ah Teck", "ahteck@nowhere.com");
-        System.out.println(a1);
-        /**Establecemos con el setter una nueva direccion de email y la imprimimos*/
-        a1.setEmail("ahteck@somewhere.com");
-        System.out.println(a1);
-        /**Imprimimos el nombre del autor*/
-        System.out.println("El nombre es: " + a1.getName());
-        /**Imprimimos el email del autor*/
-        System.out.println("El email es: " + a1.getEmail());
+    public class Main {
+        public static void main(String[] args) {
+            /**Establece los datos para el cliente con el id, nombre y descuento y, lo imprime*/
+            Customer c1 = new Customer(88, "Tan Ah Teck", 10);
+            System.out.println(c1); // Customer's toString()
+            /**Establece con el setter un porcentaje de descuento nuevo*/
+            c1.setDiscount(8);
+            /**Imprime los datos para el cliente con el nuevo porcentaje*/
+            System.out.println(c1);
+            /**Imprime el id del cliente*/
+            System.out.println("El id es: " + c1.getId());
+            /**Imprime el nombre del cliente*/
+            System.out.println("El nombre es: " + c1.getName());
+            /**Imprime el descuento del cliente*/
+            System.out.println("El descuento es: " + c1.getDiscount());
 
-        /**Establecemos los datos del libro con el nombre, isbn, el precio y la cantidad con el nombre del autor
-         * y se imprimen los datos
-         */
-        Book b1 = new Book("12345", "Java for dummies", a1, 8.8, 88);
-        System.out.println(b1);
-        /**A traves del setter establecemos valores nuevos para el precio y la cantidad*/
-        b1.setPrice(9.9);
-        b1.setQty(99);
-        /**Con los nuevos valores se imprimen los datos del libro*/
-        System.out.println(b1);
-        /**Imprime el isbn del libro*/
-        System.out.println("El isbn es: " + b1.getIsbn());
-        /**Imprime el nombre del libro*/
-        System.out.println("El nombre es: " + b1.getName());
-        /**Imprime el precio del libro*/
-        System.out.println("El precio es: " + b1.getPrice());
-        /**Imprime la cantidad de libros*/
-        System.out.println("La cantidad es: " + b1.getQty());
-        /**Imprime los datos del autor del libro*/
-        System.out.println("El autor es: " + b1.getAuthor());
-        /**Imprime el nombre del autor del libro*/
-        System.out.println("El nombre del autor es: " + b1.getAuthorName());
-        /**Imprime el nombre del autor del libro*/
-        System.out.println("El nombre del autor es: " + b1.getAuthor().getName());
-        /**Imprime el email del autor del libro*/
-        System.out.println("El email del autor es: " + b1.getAuthor().getEmail());
+
+            /**Establece los datos para la factura con el id y la cantidad para un cliente*/
+            Invoice inv1 = new Invoice(101, c1, 888.8);
+            /**Imprime los datos de una factura*/
+            System.out.println(inv1);
+            /**Establece un nuevo importe a traves del setter y lo imprime*/
+            inv1.setAmount(999.9);
+            System.out.println(inv1);
+            /** Imprime el Id de la factura*/
+            System.out.println("El id es: " + inv1.getId());
+            /** Imprime los datos del cliente de la factura*/
+            System.out.println("customer is: " + inv1.getCustomer());
+            /** Imprime el importe de la factura*/
+            System.out.println("EL importe a pagar es: " + inv1.getAmount());
+            /** Imprime el Id del cliente de la factura*/
+            System.out.println("El id del cliente es: " + inv1.getCustomerId());
+            /** Imprime el nombre del cliente de la factura*/
+            System.out.println("customer's name is: " + inv1.getCustomerName());
+            /** Imprime el descuento del cliente de la factura*/
+            System.out.println("customer's discount is: " + inv1.getCustomerDiscount());
+            /** Imprime el importe de la factura despues de aplicarle el descuento*/
+            System.out.printf("amount after discount is: %.2f%n", inv1.getAmountAfterDiscount());
+        }
     }
-}

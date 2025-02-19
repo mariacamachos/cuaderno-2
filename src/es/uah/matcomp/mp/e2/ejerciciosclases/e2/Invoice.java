@@ -2,11 +2,14 @@ package es.uah.matcomp.mp.e2.ejerciciosclases.e2;
 /**Representa una factura definida por el id, el cliente y el importe*/
 
 public class Invoice {/**Guardado en la clase (Invoice.java)*/
+    /**ATRIBUTOS*/
+    /** Establecidos de manera privada*/
     private int id;
     private Customer customer;
     private double amount;
 
-    /**Construimos la clase de la factura*/
+    /**METODOS*/
+    /**Construimos el metodo de la factura a partir del id, cliente y cantidad*/
     public Invoice(int id, Customer customer, double amount) {
         this.id = id;
         this.customer = customer;
@@ -16,11 +19,11 @@ public class Invoice {/**Guardado en la clase (Invoice.java)*/
     public int getId() {
         return id;
     }
-    /**Devuelve el cliente*/
+    /**Devuelve los datos del cliente*/
     public Customer getCustomer() {
         return customer;
     }
-    /** Setter del cliente*/
+    /** Establece valores para el metodo de cliente concretos*/
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
@@ -28,7 +31,7 @@ public class Invoice {/**Guardado en la clase (Invoice.java)*/
     public double getAmount() {
         return amount;
     }
-    /**Setter del importe*/
+    /**Establece una cantidad concreta*/
     public void setAmount(double amount) {
         this.amount = amount;
     }
