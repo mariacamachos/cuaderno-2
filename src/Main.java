@@ -1,70 +1,42 @@
-import es.uah.matcomp.mp.e2.ejerciciosclases.e3.Customer;
-import es.uah.matcomp.mp.e2.ejerciciosclases.e3.Account;
+import es.uah.matcomp.mp.e2.ejerciciosclases.e4.MyPoint;
 
 public class Main {
     public static void main(String[] args) {
-        /**Establezco los clientes con su id, nombre y el genero*/
-        Customer c1 = new Customer(99, "Juana", 'f');
-        Customer c2 = new Customer(100, "Laura", 'f');
-        /**Imprimo los datos de los usuarios*/
-        System.out.println(c1);
-        System.out.println(c2);
-        /**No hay set con lo que no puedo probar a establecer un nuevo id o un nuevo nombre para un customer ya definido
-         * si se pudiese lo implementaría de la forma: c1. setId(valor del id nuevo)
-         */
+        /**Construimos un programa para calcular con los atributos y metodos*/
+        /**Va a imprimir el p1 que está designado por el (0,0) al principio*/
+        MyPoint p1 = new MyPoint();
+        System.out.println("Mi punto es: " + p1);
 
-        /**En este caso si hay getters por lo que pruebo que funcionen bien estos lo qu ehacen es devolverme los valores
-         * que ya he establecido en cada usuario
-         */
-        /**Imrprime el id, nombre y genero del cliente 1*/
-        System.out.println("El id es:" + c1.getId());
-        System.out.println("El nombre es:" + c1.getName());
-        System.out.println("El genero es:" + c1.getGender());
+        /**A partir de los setter establecemos nuevas coordenas que imprimimos,
+         * las estbalecemos por separado los valores de la x y de la y*/
+        p1.setX(8);
+        p1.setY(6);
+        System.out.println("La x es: " + p1.getX());
+        System.out.println("La y es: " + p1.getY());
 
-        /**Imrprime el id, nombre y genero del cliente 2*/
-        System.out.println("El id es:" + c2.getId());
-        System.out.println("El nombre es:" + c2.getName());
-        System.out.println("El genero es:" + c2.getGender());
+        /**A través de un setter establecemos una nueva coordenada*/
+        p1.setXY(3, 0);
+        /**Imprimos la coordenada por separado*/
+        System.out.println("La x es:" + p1.getXY()[0]);
+        System.out.println("La y es:" + p1.getXY()[1]);
+        /**Imprimimos la coordenada definida*/
+        System.out.println("La coordenada es:" + p1);
 
-        /**Establezco dos cuentas de dos personas con el id y los datos de los clientes */
-        Account a1 = new Account(99, c1);
-        Account a2 = new Account(100, c2);
-        /**Imprimo los datos de ambas cuentas*/
-        System.out.println(a1);
-        System.out.println(a2);
+        /**Establecemos un nuevo punto a traves del metodo y lo imprimimos*/
+        MyPoint p2 = new MyPoint(0, 4);
+        System.out.println("El nuevo punto es:" + p2);
 
-        /**Pruebo la parte del codigo del account y establezco dos cuentas*/
-        /**Establezco a partir de los setter, los balances para las 2 cuentas*/
-        a1.setBalance(100);
-        System.out.println(a1);
-        a2.setBalance(200);
-        System.out.println(a2);
+        /**Calculamos la distancia que hay del punto p1 al punto p2*/
+        System.out.println("La distancia del punto p1 al p2 es:" + p1.distance(p2));
+        /**Calculamos la distancia que hay del punto p2 al punto p1*/
+        System.out.println("La distancia del punto p2 al p1 es:" + p2.distance(p1));
+        /**Calculamos la distancia que hay del punto p1 al (5,6)*/
+        System.out.println("La distancia es:" + p1.distance(5, 6));
+        System.out.println("La distancia es:"+ p1.distance());
 
-        /** Imprimo el balance que he establecido arriba para cada cuenta*/
-        System.out.println("El balance es::" + a1.getBalance());
-        System.out.println("El balance es::" + a2.getBalance());
-
-        /** Establezco un deposito e imprimo los datos de la cuenta con dicho elemento*/
-        a1.deposit(100);
-        a2.deposit(200);
-        System.out.println(a1);
-        System.out.println(a2);
-
-        /** withdraw*/
-        /**Cuenta 1: tiene 200, pago 100 e imprimo el balance */
-        a1.withdraw(100);
-        System.out.println("El balance es::" + a1.getBalance());
-        /**Cuenta 2: tiene 400, paga 100 e imprimo el balance*/
-        a2.withdraw(300);
-        System.out.println("El balance es::" + a2.getBalance());
-        /**Cuenta 3: tiene 100 y paga 50 e imprimo el balance*/
-        a1.withdraw(50);
-        System.out.println("El balance es:" + a1.getBalance());
-        /** Aquí estoy buscando el error */
-        a2.withdraw(70);
-        System.out.println("El balance es::" + a2.getBalance());
     }
 }
+
 
 
 
