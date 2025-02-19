@@ -2,10 +2,14 @@ package es.uah.matcomp.mp.e2.ejerciciosclases.e1;
 /**
  * Define a un autor a partir de su nombre y su email
  */
-public class Author {/**Guadado en la clase (Author.java) */
+public class Author {/** Guadado en la clase (Author.java) */
+    /**ATRIBUTOS*/
+    /** Establecidos de manera privada*/
     private String name;
     private String email;
-    /**Construimos la clase autor*/
+
+    /**METODOS*/
+    /**Construimos el metodo de autor a partir del nombre y del email*/
     public Author(String name, String email) {
         this.name = name;
         this.email = email;
