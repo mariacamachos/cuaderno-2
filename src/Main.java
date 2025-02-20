@@ -1,38 +1,57 @@
 import es.uah.matcomp.mp.e2.ejerciciosclases.e4.MyPoint;
+import es.uah.matcomp.mp.e2.ejerciciosclases.e5.MyLine;
 
 public class Main {
     public static void main(String[] args) {
         /**Construimos un programa para calcular con los atributos y metodos*/
-        /**Va a imprimir el p1 que está designado por el (0,0) al principio*/
-        MyPoint p1 = new MyPoint();
-        System.out.println("Mi punto es: " + p1);
+        /**Establezco los tres puntos de coordenadas (x,y) a partir de importar las clase de
+         * MyPoint.java y MyLine.java */
+        MyPoint p1 = new MyPoint(16, 5);
+        MyPoint p2 = new MyPoint(1, 7);
+        MyPoint p3 = new MyPoint(2, 9);
+        /**Designamos la línea 1 designada por el punto inicial (2,3) y el punto
+         * final designado por el (1,5)*/
+        MyLine L1 = new MyLine(2,3,1,5);
+        /**La línea 2 está formada por el punto p1 y p2 designados arriba con el MyPoint*/
+        MyLine L2 = new MyLine(p2, p1);
 
-        /**A partir de los setter establecemos nuevas coordenas que imprimimos,
-         * las estbalecemos por separado los valores de la x y de la y*/
-        p1.setX(8);
-        p1.setY(6);
-        System.out.println("La x es: " + p1.getX());
-        System.out.println("La y es: " + p1.getY());
+        /**Se imprimen los puntos y las líneas */
+        System.out.println("El punto 1 es:" + p1);
+        System.out.println("El punto 2 es:" + p2);
+        System.out.println("La línea 1 es:" + L1);
+        System.out.println("La línea 2 es:" + L2);
 
-        /**A través de un setter establecemos una nueva coordenada*/
-        p1.setXY(3, 0);
-        /**Imprimos la coordenada por separado*/
-        System.out.println("La x es:" + p1.getXY()[0]);
-        System.out.println("La y es:" + p1.getXY()[1]);
-        /**Imprimimos la coordenada definida*/
-        System.out.println("La coordenada es:" + p1);
+        /**Se muestra la información de las líneas*/
+        System.out.println("El punto inicial de la línea 2 es:" + L2.getBegin());
+        System.out.println("El punto final de la línea 2 es:" + L2.getEnd());
+        System.out.println("La coordenada x del punto inicial de la línea 1 es:" + L1.getBeginX());
+        System.out.println("La coordenada y del punto inicial de la línea 1 es:" +L1.getBeginY());
+        System.out.println("La coordenada x del punto final de la línea 1 es:" + L1.getEndX());
+        System.out.println("La coordenada y del punto final de la línea 1 es:" + L1.getEndY());
 
-        /**Establecemos un nuevo punto a traves del metodo y lo imprimimos*/
-        MyPoint p2 = new MyPoint(0, 4);
-        System.out.println("El nuevo punto es:" + p2);
+        /** A través de los setter se modifican datos en concreto y se imprime a nueva información sobre la L1*/
+        L1.setBeginX(p1.getX());
+        System.out.println("La nueva línea 1 es (ha cambiado la coordenada x del punto inicial):" + L1);
+        L1.setBeginY(p1.getY());
+        System.out.println("La nueva línea 1 es (ha cambiado la coordenada y del punto inicial):" + L1);
+        L1.setBegin(p2);
+        System.out.println("La nueva línea 1 es (se le ha asignado el p2 al punto de inicio): " + L1);
+        L1.setEnd(p3);
+        System.out.println("La nueva línea 1 es (se le ha asignado el p3 al punto del final):" + L1);
 
-        /**Calculamos la distancia que hay del punto p1 al punto p2*/
-        System.out.println("La distancia del punto p1 al p2 es:" + p1.distance(p2));
-        /**Calculamos la distancia que hay del punto p2 al punto p1*/
-        System.out.println("La distancia del punto p2 al p1 es:" + p2.distance(p1));
-        /**Calculamos la distancia que hay del punto p1 al (5,6)*/
-        System.out.println("La distancia es:" + p1.distance(5, 6));
-        System.out.println("La distancia es:"+ p1.distance());
+        /**Modifica las coordenadas de las líneas*/
+        L1.setEndXY(p3.getX(), p2.getY());
+        /**En la coordenada final se el asigna la x del p3 y la y del p2 y se imprime*/
+        System.out.println("La nueva línea 1 es:" + L1);
+
+        /**En la coordenada final se el asigna la x del p1 y la y del p2 y se imprime*/
+        L2.setEndXY(p1.getX(), p2.getY());
+        System.out.println(L2);
+
+
+        /**Imprime la longitud de ambas líneas*/
+        System.out.println("La longitud de la línea 2 es:" + L2.getLength());
+        System.out.println("La longitud de la línea 1 es:" + L1.getLength());
 
     }
 }
