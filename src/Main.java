@@ -1,60 +1,34 @@
-/**Se importan las clases MyPoint.java y MiCircle.java*/
+/**Se importan las clases MyPoint.java y MyTriangle.java*/
 import es.uah.matcomp.mp.e2.ejerciciosclases.e4.MyPoint;
-import es.uah.matcomp.mp.e2.ejerciciosclases.e6.MyCircle;
-import java.util.Arrays;
+import es.uah.matcomp.mp.e2.ejerciciosclases.e7.MyTriangle;
 
 public class Main {
     public static void main(String[] args) {
-        /**Establecemos un punto cuyas coordenadas son (1,9)*/
-        MyPoint p1 = new MyPoint(1, 9);
-        /**Creamos tres círculos, el primero con centro en (1,3) y radio 5,
-         * el segundo con centro (9,3) y radio 3 y, el último, centro en (0,0) y radio 1*/
-        MyCircle c1 = new MyCircle(1, 3, 5);
-        MyCircle c2 = new MyCircle(new MyPoint(9, 3), 3);
-        MyCircle c3 = new MyCircle();
-        /**Se imprimen los datos del círculo 1, 2 y 3*/
-        System.out.println("Circulo 1: " + c1);
-        System.out.println("Circulo 2: " + c2);
-        System.out.println("Circulo 3: " + c3);
+        /**Designamos los tres puntos en coordenadas(2,7), (8,5),(3,1)*/
+        MyPoint p1 = new MyPoint(2, 7);
+        MyPoint p2 = new MyPoint(8, 5);
+        MyPoint p3 = new MyPoint(3, 1);
+        /**Imprimos los puntos*/
+        System.out.println("Mi primer punto es: " + p1);
+        System.out.println("Mi segundo punto es: " + p2);
+        System.out.println("Mi tercer punto es: " + p3);
+        /**Designamos el triangulo 1 con las coordenadas (0,0),(4,0),(2,3)*/
+        MyTriangle t1 = new MyTriangle(0, 0, 4, 0, 2, 3);
+        /**Designamos el triangulo 2 con las coordenadas p1,p2 y p3*/
+        MyTriangle t2 = new MyTriangle(p1, p2, p3);
+        /**Designamos el tringulo 3 con los 3 puntos en el origen de coordenadas para probar que se imprime el
+         * triangulo es equilatero y ver que funciona*/
+        MyTriangle t3 = new MyTriangle(0,0,0,0,0,0);
 
-        /**Se imprimen los datos del centro del circulo 1 y el radio del circulo 2*/
-        System.out.println("Centro de c1: " + c1.getCenter());
-        System.out.println("Radio de c2: " + c2.getRadius());
 
-        /**Establecemos para el radio del circulo 1 el valor de: 5 y lo imprimimos*/
-        c1.setRadius(5);
-        System.out.println("Nuevo radio de c1: " + c1.getRadius());
-        /**Establecemos para el centro del circulo 1 el punto: (6,4) y lo imprimimos*/
-        c1.setCenter(new MyPoint(6, 4));
-        System.out.println("Nuevo centro de c1: " + c1.getCenter());
+        /**Imprimimos el tipo que es cada triangulo*/
+        System.out.println("El triangulo formado por los puntos (0,0), (4,0), (2,3) es : " + t1.getType()) ;
+        System.out.println("El triangulo formado por los puntos p1, p2, p3 es : " + t2.getType());
+        System.out.println("El triangulo formado por los puntos (0,0), (0,0), (0,0) es : " + t3.getType()) ;
 
-        /**Establecemos el centro del circulo 1 con la modificacion de la
-         * coordenada x en 2 y lo imprimimos*/
-        c1.setCenterX(2);
-        System.out.println("Nuevo centro de c1: " + c1.getCenter());
-        /**Establecemos el centro del circulo 2 con la modificacion de la
-         * coordenada y en 5 y lo imprimimos*/
-        c2.setCenterY(5);
-        System.out.println("Nuevo centro de c2: " + c2.getCenter());
-
-        /**Cambiamos las coordenadas del centro del circulo 1 en: (4,9) y lo imprimimos*/
-        c1.setCenterXY(4, 9);
-        System.out.println("Nuevo centro de c1: " + Arrays.toString(c1.getCenterXY()));
-        /**Cambiamos las coordenadas del centro del circulo 2 en: (0,6) y lo imprimimos*/
-        c2.setCenterXY(0, 6);
-        System.out.println("Nuevo centro de c2: " + Arrays.toString(c2.getCenterXY()));
-
-        /**Imprime el area del circulo 1 y 2*/
-        System.out.println("Area de c1: " + c1.getArea());
-        System.out.println("Area de c2: " + c2.getArea());
-
-        /**Imprime la circunferencia del circulo 1 y 2*/
-        System.out.println("Circunferencia de c1: " + c1.getCircumference());
-        System.out.println("Circunferencia de c2: " + c2.getCircumference());
-
-        /**Imprime la distancia entre los dos circulos */
-        System.out.println("Distancia entre los centros del circulo 1 y 2: " + c1.distance(c2));
+        /**Imprimimos el perimetro del triangulo 1, 2 y 3*/
+        System.out.println("El perimetro del triangulo t1 es:" + t1.getPerimeter());
+        System.out.println("El perimetro del triangulo t2 es:" + t2.getPerimeter());
+        System.out.println("El perimetro del triangulo t3 es:" + t3.getPerimeter());
     }
 }
-
-
